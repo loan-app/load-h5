@@ -48,6 +48,7 @@ export default {
     fetchData() {
       getBankCardInfo()
         .then(data => {
+          console.log(data)
           this.data = data;
         });
     },
@@ -80,9 +81,6 @@ export default {
   }
 
   ul li {
-    display: box;
-    display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     height: 0.5rem;
     -webkit-align-items: center;

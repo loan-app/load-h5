@@ -41,7 +41,8 @@ class AjaxRequest {
       error => {
         // 发送失败
         errorLog('网络好像出了点问题，请检查网络后尝试访问');
-        Promise.reject(error);
+        return error;
+        // Promise.reject(error);
       }
     );
 
@@ -113,9 +114,13 @@ class AjaxRequest {
         }
         errorLog(error);
         return Promise.reject(error);
+
       }
     );
-    return instance(config);
+    return instance(config)
+      .catch((err) => {
+        return {};
+      });
   }
 
 
@@ -123,7 +128,7 @@ class AjaxRequest {
 
 // 记录和显示错误
 function errorLog(error) {
-  console.log(error)
+  console.log(error);
   // 显示提示
   // TODO
   // window.mui.alert(error.message);

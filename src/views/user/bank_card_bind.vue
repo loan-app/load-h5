@@ -108,7 +108,7 @@ export default {
         .then(data => {
           // TODO 跳转页面
           const token = '1111'
-          window.location.href = 'bank_card_code.html?token=' + token;
+          window.location.href = '/user/bank_card_code?token=' + token;
         });
     },
     cardInput() {

@@ -18,13 +18,13 @@ const routes = [
     component: Home
   },
   {
-    path: '/order/store-order-history',
-    name: 'store-order-history',
+    path: '/order/store_order_history',
+    name: 'store_order_history',
     component: storeOrderHistory
   },
   {
-    path: '/order/store-order-detail',
-    name: 'store-order-detail',
+    path: '/order/store_order_detail',
+    name: 'store_order_detail',
     component: storeOrderDetail
   },
   {

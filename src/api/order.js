@@ -14,3 +14,12 @@ export const getOrderDetail = data => io.request({
   data: data
 });
 
+// 检验这个人是否能借多少钱 TODO
+export const checkIsCanBorrow = data => io.request({
+  url: '/order/loan_order_detail',
+  method: 'post',
+  data: data
+});
+
+
+

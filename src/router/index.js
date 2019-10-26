@@ -6,6 +6,8 @@ import storeOrderDetail from '@/views/order/store_order_detail.vue';
 import bankCard from '@/views/user/bank_card.vue';
 import bankCardBind from '@/views/user/bank_card_bind.vue';
 import bankCardCode from '@/views/user/bank_card_code.vue';
+import registar from '@/views/agreement/registar.vue';
+import register from '@/views/agreement/register.vue';
 
 Vue.use(VueRouter);
 
@@ -39,6 +41,16 @@ const routes = [
     path: '/user/bank_card_code',
     name: 'bank_card_code',
     component: bankCardCode
+  },
+  {
+    path: '/agreement/registar',
+    name: 'registar',
+    component: registar
+  },
+  {
+    path: '/agreement/register',
+    name: 'register',
+    component: register
   },
   {
     path: '/about',

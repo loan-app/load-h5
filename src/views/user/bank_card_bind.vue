@@ -77,7 +77,7 @@ export default {
     fetchData() {
       getBankUserName()
         .then(data => {
-          this.data = data;
+          this.bankUserName = data.name;
         });
 
       getBankList()

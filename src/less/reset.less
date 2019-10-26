@@ -1,0 +1,332 @@
+@fontFamilyDefault: PingFang SC, miui, system-ui, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, sans-seriff;
+
+body,
+button,
+input,
+select,
+textarea {
+  color: #333;
+  background: #f5f5f5;
+  /*font-family: "Microsoft Yahei", 宋体;*/
+  font-family: @fontFamilyDefault;
+  word-break: break-all;
+  word-wrap: break-word;
+  padding: 0;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+// ios浏览器表单上<input type="submit" />不一致
+input[type='button'],
+input[type='submit'],
+input[type='reset'] {
+  -webkit-appearance: none;
+}
+
+ol,
+li,
+fieldset,
+h1,
+h2,
+h3,
+img,
+p,
+dd,
+dl,
+input {
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  outline: medium none;
+  border: 0 none;
+  display: block;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  word-wrap: normal;
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-user-select: none;
+  line-height: 1;
+}
+
+* {
+  line-height: inherit;
+}
+
+a[href] {
+  text-decoration: none; // -ms-touch-action: none;
+  // touch-action: none;
+}
+
+li > a {
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+a[href] {
+  text-decoration: none;
+  -ms-touch-action: none;
+  touch-action: none;
+}
+
+* {
+  /* 手机端全局背景透明。*/
+  -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+  -moz-tap-highlight-color: rgba(255, 0, 0, 0);
+  -ms-tap-highlight-color: rgba(255, 0, 0, 0);
+  -o-tap-highlight-color: rgba(255, 0, 0, 0);
+  /* 取消手机端自动调整字体大小。*/
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  text-size-adjust: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+::-webkit-textfield-decoration-container,
+::-webkit-outer-spin-button,
+::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0;
+}
+
+/* 取消选中和默认事件响应 */
+
+*:not(input, textarea) {
+  -webkit-touch-callout: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+select {
+  -webkit-appearance: listbox;
+  -moz-appearance: listbox;
+}
+
+input[type=date],
+input[type=month] {
+  -webkit-appearance: listbox;
+  -moz-appearance: listbox;
+}
+
+input[type=tel] {
+  font-size: 15px;
+}
+
+
+// 重置input placeholder样式
+input::-webkit-input-placeholder {
+  color: #e2e2e2;
+  font-size: 15px;
+}
+
+input::-moz-placeholder {
+  color: #e2e2e2;
+  font-size: 15px;
+
+}
+
+input:-ms-input-placeholder {
+  color: #e2e2e2;
+  font-size: 15px;
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent
+}
+
+::-webkit-scrollbar {
+  display: none
+}
+
+html {
+  -webkit-user-select: none;
+  user-select: none
+}
+
+* {
+  padding: 0
+}
+
+*, body {
+  margin: 0
+}
+
+body {
+  font-size: 0.14em
+}
+
+blockquote, button, dd, dl, fieldset, figure, form, h1, h2, h3, h4, h5, h6, input, legend, ol, p, pre, td, textarea, th, ul, xmp {
+  margin: 0;
+  padding: 0
+}
+
+button, input, select, textarea {
+  outline: none
+}
+
+button, code, input, kbd, pre, samp, select, textarea, tt, xmp {
+  line-height: inherit
+}
+
+big, button, h1, h2, h3, h4, h5, h6, input, select, small, textarea {
+  font-size: inherit
+}
+
+address, cite, dfn, em, i, optgroup, var {
+  font-style: normal
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: left;
+  border-spacing: 0
+}
+
+menu, ol, ul {
+  list-style: none
+}
+
+fieldset, img {
+  border: 0;
+  vertical-align: middle
+}
+
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+  display: block
+}
+
+audio, canvas, video {
+  display: inline-block
+}
+
+blockquote:after, blockquote:before, q:after, q:before {
+  content: "\0020"
+}
+
+pre, textarea, xmp {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch
+}
+
+textarea {
+  resize: vertical
+}
+
+button, input, select a, textarea {
+  outline: 0 0
+}
+
+button, input, select, textarea {
+  color: inherit
+}
+
+button:disabled, input:disabled, select:disabled, textarea:disabled {
+  opacity: 1
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+  padding: 0;
+  border: 0
+}
+
+input[type=button], input[type=file]::-webkit-file-upload-button, input[type=reset], input[type=search]::-webkit-search-cancel-button, input[type=submit] {
+  -webkit-appearance: none;
+  appearance: none
+}
+
+mark {
+  background-color: transparent
+}
+
+a, del, ins, s, u {
+  text-decoration: none
+}
+
+a, img {
+  -webkit-touch-callout: none
+}
+
+.clearfix:after, .clearfix:before {
+  clear: both;
+  display: block;
+  visibility: hidden;
+  height: 0;
+  content: ".";
+  font-size: 0;
+  line-height: 0
+}
+
+a {
+  color: #000
+}
+
+.layer-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 998;
+  width: 3.75rem;
+  height: 100%;
+  background: rgba(0, 0, 0, .5)
+}
+
+#layerModel .layer-box {
+  position: fixed;
+  top: 2rem;
+  left: 0.8rem;
+  z-index: 999;
+  padding: 0.1rem;
+  width: 2.3rem;
+  min-height: 1.6rem;
+  border-radius: 0.1rem;
+  background: #fff
+}
+
+#layerModel .layer-box p {
+  margin-top: 0.2rem;
+  width: 100%;
+  color: #666;
+  text-align: center;
+  font-size: 0.16rem;
+  line-height: 0.24rem
+}
+
+#layerModel .layer-box svg {
+  display: block;
+  margin: 0.1rem auto;
+  width: 0.44rem;
+  height: 0.44rem
+}
+
+#layerModel .layer-box input {
+  margin: 0.2rem 0.05rem 0;
+  width: 2.01rem;
+  height: 0.41rem;
+  border: none;
+  border-radius: 0.05rem;
+  background: #6420a4;
+  color: #fff;
+  font-size: 0.15rem
+}
+
+.inviting-box img {
+  display: block
+}
+

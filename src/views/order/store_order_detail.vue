@@ -47,7 +47,6 @@
         </li>
       </ul>
     </div>
-    <input type="hidden" id="data_orderId"/>
     <div class="btn-wrap" v-if='data.status === 1'>
       <button class="immediate-repayment" @click='repayment'>立即还款</button>
     </div>
@@ -83,8 +82,8 @@ export default {
     },
     repayment () {
       // TODO
-      skipPage(0, webDomain + 'order/store_select_by.html?repayMoney=' + shouldRepay + '&orderId=' + orderId);
-      mui.confirm('还款成功了吗？', '提示', ["是", "否"], function(e) {
+      wv.skipPage(0, '/order/store_order_repay?repayMoney=' + this.data.shouldRepay + '&orderId=' + this.orderId);
+      window.mui.confirm('还款成功了吗？', '提示', ["是", "否"], function(e) {
         this.fetchData()
         // if(e.index === 0) {
         //   initial();

@@ -14,9 +14,33 @@ export const getOrderDetail = data => io.request({
   data: data
 });
 
-// 检验这个人是否能借多少钱 TODO
-export const checkIsCanBorrow = data => io.request({
-  url: '/order/loan_order_detail',
+export const orderConfirm = data => io.request({
+  url: '/order/order_confirm',
+  method: 'post',
+  data: data
+});
+
+export const orderSubmit = data => io.request({
+  url: '/order/order_submit',
+  method: 'post',
+  data: data
+});
+
+export const getRepayChannel = data => io.request({
+  url: '/order/repay_channel',
+  method: 'post',
+  data: data
+});
+
+export const getRepayInfo = data => io.request({
+  url: '/order/repay_info',
+  method: 'post',
+  data: data
+});
+
+// 易宝还款
+export const orderRepay = data => io.request({
+  url: '/order/order_repay',
   method: 'post',
   data: data
 });

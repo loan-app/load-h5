@@ -56,6 +56,10 @@ function getToken() {
  * @returns
  */
 function skipPage(isclose, url) {
+  // 处理url
+  if(url.startsWith('http') === -1) {
+
+  }
   try {
     var ua = navigator.userAgent.toLowerCase();
     if (/iphone|ipad|ipod/.test(ua)) {

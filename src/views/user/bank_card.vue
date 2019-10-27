@@ -97,7 +97,7 @@ export default {
     color: #fff;
     border-radius: 0.22rem;
     text-align: center;
-    line-height: 0.45rem;
+    line-height: 0.38rem;
     font-size: 18px;
     margin: 0 auto;
     border: none

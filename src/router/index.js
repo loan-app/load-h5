@@ -3,6 +3,9 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import storeOrderHistory from '@/views/order/store_order_history.vue';
 import storeOrderDetail from '@/views/order/store_order_detail.vue';
+import storeOrderApply from '@/views/order/store_order_apply.vue';
+import storeOrderRepay from '@/views/order/store_order_repay.vue';
+import storePayReturn from '@/views/order/store_pay_return.vue';
 import bankCard from '@/views/user/bank_card.vue';
 import bankCardBind from '@/views/user/bank_card_bind.vue';
 import bankCardCode from '@/views/user/bank_card_code.vue';
@@ -26,6 +29,21 @@ const routes = [
     path: '/order/store_order_detail',
     name: 'store_order_detail',
     component: storeOrderDetail
+  },
+  {
+    path: '/order/store_order_apply',
+    name: 'store_order_apply',
+    component: storeOrderApply
+  },
+  {
+    path: '/order/store_order_repay',
+    name: 'store_order_repay',
+    component: storeOrderRepay
+  },
+  {
+    path: '/order/store_pay_return',
+    name: 'store_pay_return',
+    component: storePayReturn
   },
   {
     path: '/user/bank_card',
@@ -63,7 +81,8 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  routes
+  routes,
+  mode: 'history'
 });
 
 export default router;

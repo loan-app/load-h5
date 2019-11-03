@@ -1,5 +1,5 @@
 import axios from 'axios';
-// import wv from '@/lib/bridge';
+import wv from '@/lib/bridge';
 import qs from 'qs';
 
 class AjaxRequest {
@@ -34,7 +34,7 @@ class AjaxRequest {
         req.data = req.data || {};
         // TODO
         // req.data.token = wv.getToken();
-        req.data.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIyIiwicGhvbmUiOiIxNTg2NzExMDU5MyIsImNsaWVudFR5cGUiOiJpb3MiLCJjbGllbnRBbGlhcyI6InRlc3QiLCJjbGllbnRWZXJzaW9uIjoiMS4wLjAiLCJpYXQiOjE1NzE4NDA4MDh9.Kn3D3yylFQShc-872Y_Ft36CAyuKICzrwJZNnGMKmeE';
+        req.data.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIyIiwicGhvbmUiOiIxNTg2NzExMDU5MyIsImNsaWVudFR5cGUiOiJpb3MiLCJjbGllbnRBbGlhcyI6InRlc3QiLCJjbGllbnRWZXJzaW9uIjoiMS4wLjAiLCJpYXQiOjE1NzI3NTkwMDJ9.Tm7g88gqeBhN_KtCTCQ_kk_vtWCVV6ItrHYOq-pIcoA';
         req.data = qs.stringify(req.data);
         return req;
       },
@@ -64,6 +64,11 @@ class AjaxRequest {
             case 2000:
               // [ 示例 ] code === 2000 代表没有错误
               return dataAxios.data;
+            case 4002:
+              errorLog(`${dataAxios.msg || dataAxios.message}`);
+              wv.closeAndOpen(0);
+              wv.closeAndOpen(1);
+              break;
             default:
               // 不是正确的 code
               errorLog(`${dataAxios.msg || dataAxios.message}`);
@@ -117,10 +122,7 @@ class AjaxRequest {
 
       }
     );
-    return instance(config)
-      .catch((err) => {
-        return {};
-      });
+    return instance(config);
   }
 
 
@@ -129,7 +131,7 @@ class AjaxRequest {
 // 记录和显示错误
 function errorLog(error) {
   console.log(error);
-  window.mui.toast(error)
+  window.mui.toast(error);
   // 显示提示
   // TODO
   // window.mui.alert(error.message);

@@ -1,3 +1,6 @@
+/**
+ * @return {string}
+ */
 function GetQueryString(name) { // 截取url的字段
   var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
   var r = window.location.search.substr(1)
@@ -12,12 +15,14 @@ function GetQueryString(name) { // 截取url的字段
  * @returns
  */
 function getCookie(c_name) {
+  let c_start = '';
+  let c_end = '';
   if (document.cookie.length > 0) {
     c_start = document.cookie.indexOf(c_name + '=');
-    if (c_start != -1) {
+    if (c_start !== -1) {
       c_start = c_start + c_name.length + 1;
       c_end = document.cookie.indexOf(';', c_start);
-      if (c_end == -1) {
+      if (c_end === -1) {
         c_end = document.cookie.length;
       }
       return unescape(document.cookie.substring(c_start, c_end));
@@ -57,9 +62,6 @@ function getToken() {
  */
 function skipPage(isclose, url) {
   // 处理url
-  if(url.startsWith('http') === -1) {
-
-  }
   try {
     var ua = navigator.userAgent.toLowerCase();
     if (/iphone|ipad|ipod/.test(ua)) {
@@ -83,13 +85,18 @@ function skipPage(isclose, url) {
  */
 function closeAndOpen(type) {
   var ua = navigator.userAgent.toLowerCase();
-  if (/iphone|ipad|ipod/.test(ua)) {
-    window.webkit.messageHandlers.closeAndOpen.postMessage({
-      type: type
-    });
-  } else {
-    window.tool.closeAndOpen(type);
+  try {
+    if (/iphone|ipad|ipod/.test(ua)) {
+      window.webkit.messageHandlers.closeAndOpen.postMessage({
+        type: type
+      });
+    } else {
+      window.tool.closeAndOpen(type);
+    }
+  } catch (e) {
+
   }
+
 }
 
 /**
@@ -101,16 +108,21 @@ function closeAndOpen(type) {
  */
 function viewSetup(backButton, closeButton, title, browser) {
   var ua = navigator.userAgent.toLowerCase();
-  if (/iphone|ipad|ipod/.test(ua)) {
-    window.webkit.messageHandlers.viewSetup.postMessage({
-      backButton: backButton,
-      closeButton: closeButton,
-      title: title,
-      browser: browser
-    });
-  } else if (/android/.test(ua)) {
-    window.tool.viewSetup(backButton, closeButton, title, browser);
+  try {
+    if (/iphone|ipad|ipod/.test(ua)) {
+      window.webkit.messageHandlers.viewSetup.postMessage({
+        backButton: backButton,
+        closeButton: closeButton,
+        title: title,
+        browser: browser
+      });
+    } else if (/android/.test(ua)) {
+      window.tool.viewSetup(backButton, closeButton, title, browser);
+    }
+  }catch (e) {
+
   }
+
 }
 
 /**
@@ -160,4 +172,4 @@ export default {
   getToken,
   getCookie,
   GetQueryString
-}
+};

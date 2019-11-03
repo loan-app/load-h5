@@ -9,6 +9,7 @@ import storePayReturn from '@/views/order/store_pay_return.vue';
 import bankCard from '@/views/user/bank_card.vue';
 import bankCardBind from '@/views/user/bank_card_bind.vue';
 import bankCardCode from '@/views/user/bank_card_code.vue';
+import certCenter from '@/views/user/cert_center.vue';
 import registar from '@/views/agreement/registar.vue';
 import register from '@/views/agreement/register.vue';
 
@@ -59,6 +60,11 @@ const routes = [
     path: '/user/bank_card_code',
     name: 'bank_card_code',
     component: bankCardCode
+  },
+  {
+    path: '/user/cert_center',
+    name: 'cert_center',
+    component: certCenter
   },
   {
     path: '/agreement/registar',

@@ -41,3 +41,9 @@ export const bankBind = data => io.request({
   method: 'post',
   data
 });
+
+export const getUserIdentInfo = data => io.request({
+  url: '/user_ident_info',
+  method: 'post',
+  data
+});

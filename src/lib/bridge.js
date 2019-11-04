@@ -77,7 +77,6 @@ function skipPage(isclose, url) {
     }
   } catch (e) {
     //TODO handle the exception
-    console.log(url)
     window.location.href = url;
   }
 
@@ -162,7 +161,6 @@ function goAppStore() {
       device = window.tool.goAppStore();
     }
   } catch (e) {
-    console.log(e);
   }
 }
 

@@ -247,7 +247,6 @@ const obj = {
           sessionStorage.length -= 1;
         };
       } catch (ex) {
-        console.log('操蛋浏览器');
       }
     }
 
@@ -270,7 +269,6 @@ const obj = {
     try {
       oStore = localStorage.getItem(key);
     } catch (ex) {
-      console.log(ex);
     }
     if (oStore) {
       oStore = JSON.parse(oStore);
@@ -301,7 +299,6 @@ const obj = {
     try {
       localStorage.setItem(key, JSON.stringify(oStore));
     } catch (ex) {
-      console.log(ex);
     }
   },
 
@@ -315,7 +312,6 @@ const obj = {
     try {
       localStorage.removeItem(key);
     } catch (ex) {
-      console.log(ex);
     }
   },
 
@@ -504,7 +500,6 @@ const obj = {
       // eslint-disable-next-line no-eval
       return eval(`a=${str}`);
     } catch (ex) {
-      console.log('格式转化出错');
       return {};
     }
   },

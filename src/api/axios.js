@@ -130,16 +130,7 @@ class AjaxRequest {
 
 // 记录和显示错误
 function errorLog(error) {
-  console.log(error);
   window.mui.toast(error);
-  // 显示提示
-  // TODO
-  // window.mui.alert(error.message);
-  // Message({
-  //   message: error.message,
-  //   type: 'error',
-  //   duration: 5 * 1000
-  // })
 }
 
 

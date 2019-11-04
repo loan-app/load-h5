@@ -38,7 +38,7 @@ export const getRepayInfo = data => io.request({
   data: data
 });
 
-// 易宝还款
+// 还款
 export const orderRepay = data => io.request({
   url: '/order/order_repay',
   method: 'post',

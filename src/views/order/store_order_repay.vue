@@ -32,7 +32,7 @@ export default {
   name: "store_order_repay",
   data() {
     return {
-      repayNo: this.$route.query.repayNo,
+      orderId: this.$route.query.orderId,
       repayMoney: this.$route.query.repayMoney,
       bankInfo: {},
       showLoading: false
@@ -53,9 +53,9 @@ export default {
       this.showLoading = true;
       orderRepay({
         orderId: this.orderId,
-        ...this.bankInfo
+        ...this.bankInfo // cardNo,cardName
       })
-        .then(data => {
+        .then(() => {
           this.showLoading = false;
           if (util.isAndroid) {
             wv.skipPage(1, "/order/store_pay_return");

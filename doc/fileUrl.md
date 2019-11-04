@@ -15,17 +15,18 @@
 /404  页面找不到
 
 ### agreement
-/agreement/registar 注册页的注册服务协议
+/agreement/registar     注册页的注册服务协议
 
-/agreement/register app里的注册协议
+/agreement/register?alias    app里的注册协议
 
 ### order
 /order/store_order_apply        借款申请页面
 
-/order/store_order_detail       我的订单详情页面
+/order/store_order_detail?orderId       我的订单详情页面
 
 /order/store_order_history      我的订单列表页面
 
+/order/store_pay_repay?repayMoney&orderId          还款页面 repayMoney=2000还款金额
+
 /order/store_pay_return         还款成功页面
 
-/order/store_pay_repay          还款页面

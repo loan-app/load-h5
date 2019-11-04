@@ -11,6 +11,7 @@ import bankCardCode from '@/views/user/bank_card_code.vue';
 import certCenter from '@/views/user/cert_center.vue';
 import registar from '@/views/agreement/registar.vue';
 import register from '@/views/agreement/register.vue';
+import blank from '@/views/404/index.vue';
 
 Vue.use(VueRouter);
 
@@ -75,6 +76,17 @@ const routes = [
     path: '/agreement/register',
     name: 'register',
     component: register
+  },
+  {
+    path: '/404',
+    name: '404',
+    component: blank
+  },
+  {
+    path: '*',
+    redirect: {
+      path: '/404'
+    }
   },
   // {
   //   path: '/about',

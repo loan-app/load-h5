@@ -78,18 +78,13 @@ export default {
       })
         .then((res) => {
           this.data = res
-        });
+        }).catch(() => {});
     },
     repayment () {
       // TODO
       wv.skipPage(0, '/order/store_order_repay?repayMoney=' + this.data.shouldRepay + '&orderId=' + this.orderId);
       window.mui.confirm('还款成功了吗？', '提示', ["是", "否"], function(e) {
-        this.fetchData()
-        // if(e.index === 0) {
-        //   initial();
-        // } else {
-        //   initial();
-        // };
+        this.fetchData();
       });
     }
   }

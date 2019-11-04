@@ -10,7 +10,7 @@
           </li>
           <li class="clearfix">
             <label>卡号</label>
-            <input required class="credit-card-input input3" @input='cardInput'
+            <input required class="credit-card-input input3" @blur='cardInput'
                    type="number"
                    v-model='cardNo' maxlength="19"
                    placeholder="请输入银行卡号"/>
@@ -34,7 +34,7 @@
                value="下一步">
       </div>
     </div>
-    <div id="myModal" style="display:none">
+    <div id="myModal" v-show='showLoading'>
       <img src="~@/assets/img/loading.png">
     </div>
     <div class="modal" id="loadingModal" style="display: none">
@@ -56,6 +56,7 @@
 
 <script>
 import { getBankUserName, getBankCardCode, getBankName, getBankList } from '@/api/user';
+import wv from '@/lib/bridge';
 
 export default {
   name: 'bank_card',
@@ -67,7 +68,8 @@ export default {
       bankError: '',
       bankName: '',
       bankList: [],
-      isShowBankList: false
+      isShowBankList: false,
+      showLoading: false
     };
   },
   created() {
@@ -78,37 +80,37 @@ export default {
       getBankUserName()
         .then(data => {
           this.bankUserName = data.name;
-        });
+        })
+        .catch(() => {});
 
       getBankList()
         .then(data => {
           this.bankList = data;
-        });
-    },
-    reBindCard() {
-      // TODO
-      skipPage(1, domain + '/user/bank_card_bind.html');
+        })
+        .catch(() => {});
     },
     creditCardNext() {
       if (!/^(\+\d+)?1[3456789]\d{9}$/.test(this.cardPhone)) {
-        // TODO
-        // '请输入正确的手机号码'
+        mui.toast('请输入正确的手机号码');
         return false;
       }
       if (this.bankError) {
-        // TODO
-        // '请输入正确的银行卡号'
+        mui.toast('请输入正确的银行卡号');
         return false;
       }
-      // TODO 需要加一个loading
+      this.showLoading = true;
       getBankCardCode({
         cardNo: this.cardNo,
         cardPhone: this.cardPhone
       })
-        .then(data => {
-          // TODO 跳转页面
-          const token = '1111'
-          window.location.href = '/user/bank_card_code?token=' + token;
+        .then(() => {
+          this.showLoading = false;
+          this.$router.replace({
+            name: 'bank_card_code'
+          });
+        })
+        .catch(() => {
+          this.showLoading = false;
         });
     },
     cardInput() {
@@ -123,10 +125,9 @@ export default {
           .catch((data) => {
             this.bankError = data.msg;
           });
+      } else {
+        this.bankError = '请输入正确的银行卡号';
       }
-    },
-    next() {
-
     }
   }
 };

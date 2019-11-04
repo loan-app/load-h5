@@ -62,6 +62,8 @@ function getToken() {
  */
 function skipPage(isclose, url) {
   // 处理url
+  // TODO
+  // url = 'http://172.17.48.121:8080/' + url
   try {
     var ua = navigator.userAgent.toLowerCase();
     if (/iphone|ipad|ipod/.test(ua)) {
@@ -75,6 +77,7 @@ function skipPage(isclose, url) {
     }
   } catch (e) {
     //TODO handle the exception
+    console.log(url)
     window.location.href = url;
   }
 

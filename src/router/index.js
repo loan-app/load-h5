@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
 import storeOrderHistory from '@/views/order/store_order_history.vue';
 import storeOrderDetail from '@/views/order/store_order_detail.vue';
 import storeOrderApply from '@/views/order/store_order_apply.vue';
@@ -18,8 +17,9 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: Home
+    redirect: {
+      path: '/user/cert_center'
+    }
   },
   {
     path: '/order/store_order_history',
@@ -76,14 +76,14 @@ const routes = [
     name: 'register',
     component: register
   },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+  // {
+  //   path: '/about',
+  //   name: 'about',
+  //   // route level code-splitting
+  //   // this generates a separate chunk (about.[hash].js) for this route
+  //   // which is lazy-loaded when the route is visited.
+  //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  // }
 ];
 
 const router = new VueRouter({

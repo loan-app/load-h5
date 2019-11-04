@@ -22,9 +22,10 @@ export default {
 <style lang="less">
   @import "~@/less/reset.less";
 
-  html, body, #app{
+  html, body, #app {
     height: 100%;
   }
+
   .router-fade-enter-active, .router-fade-leave-active {
     transition: opacity .2s;
   }

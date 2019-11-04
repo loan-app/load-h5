@@ -122,15 +122,20 @@ export default {
       version: '1.0.0'
     })
       .then(data => {
-        // TODO ? 没找到.company
         this.company = data.company;
-        this.app = data.app;
-      });
+        this.appName = data.app;
+      })
+      .catch(() => {});
   }
 };
 </script>
 
 <style scoped>
-  p:first-of-type {line-height: 0.3rem;}
-  p {padding: 0 0.1rem;}
+  p:first-of-type {
+    line-height: 0.3rem;
+  }
+
+  p {
+    padding: 0 0.1rem;
+  }
 </style>

@@ -21,13 +21,9 @@ export default {
   methods: {
     choose(value) {
       if (value === 1) {
-        try {
-          wv.closeAndOpen(2);
-        } catch (e) {
-          //TODO handle the exception
-        }
+        wv.closeAndOpen(2);
       } else {
-        closeAndOpen(0);
+        wv.closeAndOpen(0);
       }
     }
   }

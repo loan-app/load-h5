@@ -18,7 +18,8 @@
       </ul>
     </div>
     <div class="my-bankcard-next" v-if='data.status === 1'>
-      <input type="button" value="重新绑卡" @click='reBindCard' class="my-bankcard-next-btn bankcard_success"
+      <input type="button" value="重新绑卡" @click='reBindCard'
+             class="my-bankcard-next-btn bankcard_success"
              style="background:#ffb700;">
     </div>
   </div>
@@ -26,6 +27,9 @@
 
 <script>
 import { getBankInfo } from '@/api/user';
+import wv from '@/lib/bridge';
+import util from '@/lib/util';
+
 
 export default {
   name: 'bank_card',
@@ -34,19 +38,37 @@ export default {
       data: {}
     };
   },
-  created () {
-    this.fetchData()
+  created() {
+    this.fetchData();
   },
   methods: {
     fetchData() {
       getBankInfo()
         .then(data => {
           this.data = data;
+        })
+        .catch((data) => {
+          if (data.code === 3001) {
+            if (util.isAndroid) {
+              wv.skipPage(1, '/user/cert_center');
+            } else {
+              this.$router.replace({
+                name: 'cert_center'
+              });
+            }
+          } else if (data.code === 3003) {
+            if (util.isAndroid) {
+              wv.skipPage(1, '/user/bank_card_bind');
+            } else {
+              this.$router.replace({
+                name: 'bank_card_bind'
+              });
+            }
+          }
         });
     },
-    reBindCard () {
-      // TODO
-      skipPage(1, domain + "/user/bank_card_bind.html");
+    reBindCard() {
+      wv.skipPage(1, '/user/bank_card_bind');
     }
   }
 };

@@ -138,7 +138,7 @@ export default {
           this.userDetails = data.userDetails;
           this.bindbank = data.bindbank;
         })
-        .catch((data) => {
+        .catch(() => {
           wv.closeAndOpen(0);
           wv.closeAndOpen(1);
         });

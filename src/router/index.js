@@ -11,6 +11,10 @@ import bankCardCode from '@/views/user/bank_card_code.vue';
 import certCenter from '@/views/user/cert_center.vue';
 import registar from '@/views/agreement/registar.vue';
 import register from '@/views/agreement/register.vue';
+import guideHuatuqianbao from '@/views/register/guide_huatuqianbao.vue';
+import huatuqianbao from '@/views/register/huatuqianbao.vue';
+import guidea from '@/views/register/explain/guidea.vue';
+import guide from '@/views/register/explain/guide.vue';
 import blank from '@/views/404/index.vue';
 
 Vue.use(VueRouter);
@@ -76,6 +80,26 @@ const routes = [
     path: '/agreement/register',
     name: 'register',
     component: register
+  },
+  {
+    path: '/register/guide_huatuqianbao',
+    name: 'guide_huatuqianbao',
+    component: guideHuatuqianbao
+  },
+  {
+    path: '/register/huatuqianbao',
+    name: 'huatuqianbao',
+    component: huatuqianbao
+  },
+  {
+    path: '/register/explain/guide',
+    name: 'guide',
+    component: guide
+  },
+  {
+    path: '/register/explain/guidea',
+    name: 'guidea',
+    component: guidea
   },
   {
     path: '/404',

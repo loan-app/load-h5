@@ -30,3 +30,11 @@
 
 /order/store_pay_return         还款成功页面
 
+### register
+
+/register/huatuqianbao?alias&origin    h5注册页
+/register/guide_huatuqianbao?origin&alias   h5下载页
+
+/register/explain/guide   ios下载引导说明页面
+
+/register/explain/guidea   华为下载说明页面

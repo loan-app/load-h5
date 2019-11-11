@@ -4,7 +4,7 @@
       <img src="~@/assets/img/download/bg_top.png" class="bg_top"/>
       <div class="main">
         <img src="~@/assets/img/download/mali_logo.png"/>
-        <p>麻利贷</p>
+        <p>花兔钱包</p>
         <div class="guide">
           <button @click="downloadAndroid" style="background: #0BBFFF;">安卓版下载</button>
           <span @click="downloadAndroidTip">华为手机安装说明</span>
@@ -26,35 +26,31 @@
 import util from '@/lib/util';
 import { checkVersion } from '@/api/register';
 
-
-var path = window.location.pathname;
-var start = path.lastIndexOf('\/');
-var end = path.lastIndexOf('.');
-var filename = path.substring(start + 1, end);
-var alias = filename.split('_')[1];
-var push = () => {};
+let push;
 export default {
   name: 'guide_huatuqianbao',
   data() {
     return {
       showWechat: false,
       origin_id: this.$route.query.origin,
+      alias: this.$route.query.alias,
       apk_url: '',
       makert_url: '',
       clientType: util.isAndroid ? 'android' : 'ios'
     };
   },
   created() {
+    document.title = '花兔钱包';
     const origin_id = parseInt(this.origin_id);
     this.origin_id = isNaN(origin_id) ? this.clientType : origin_id;
     checkVersion({
-      alias: alias,
+      alias: this.alias,
       type: this.clientType,
       version: '1.0.0'
     })
       .then(data => {
-        this.apk_url = data.data.versionUrl;
-        this.makert_url = data.data.appMarket;
+        this.apk_url = data.versionUrl;
+        this.makert_url = data.appMarket;
       })
       .catch(() => {});
   },
@@ -88,7 +84,7 @@ export default {
           this.showWechat = true;
           return false;
         }
-        push(alias, '下载', this.clientType, this.origin_id);
+        push(this.alias, '下载', this.clientType, this.origin_id);
         if (this.makert_url) {
           window.location.href = this.makert_url;
           return;
@@ -103,7 +99,7 @@ export default {
     },
     downloadIos() {
       if (util.isIos) {
-        push(alias, '下载', this.clientType, this.origin_id);
+        push(this.alias, '下载', this.clientType, this.origin_id);
         if (this.makert_url) {
           window.location.href = this.makert_url;
           return false;
@@ -126,9 +122,10 @@ export default {
 </script>
 
 <style scoped>
-  .height100{
+  .height100 {
     height: 100%;
   }
+
   .body {
     width: 100%;
     height: 100%;

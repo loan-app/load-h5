@@ -33,8 +33,8 @@ class AjaxRequest {
          */
         req.data = req.data || {};
         // TODO
-        // req.data.token = wv.getToken();
-        req.data.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIyIiwicGhvbmUiOiIxNTg2NzExMDU5MyIsImNsaWVudFR5cGUiOiJpb3MiLCJjbGllbnRBbGlhcyI6InRlc3QiLCJjbGllbnRWZXJzaW9uIjoiMS4wLjAiLCJpYXQiOjE1NzI3NTkwMDJ9.Tm7g88gqeBhN_KtCTCQ_kk_vtWCVV6ItrHYOq-pIcoA';
+        req.data.token = wv.getToken();
+        // req.data.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIyIiwicGhvbmUiOiIxNTg2NzExMDU5MyIsImNsaWVudFR5cGUiOiJpb3MiLCJjbGllbnRBbGlhcyI6InRlc3QiLCJjbGllbnRWZXJzaW9uIjoiMS4wLjAiLCJpYXQiOjE1NzI3NTkwMDJ9.Tm7g88gqeBhN_KtCTCQ_kk_vtWCVV6ItrHYOq-pIcoA';
         req.data = qs.stringify(req.data);
         return req;
       },
